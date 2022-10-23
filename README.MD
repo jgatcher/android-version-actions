@@ -1,4 +1,4 @@
-# android-version-action v1.1
+# android-version-action v1.2
 Override your android version number and version code through github actions
 
 ## Features
@@ -8,6 +8,9 @@ Override your android version number and version code through github actions
 ## Parameters
 `gradlePath`
 **Required**, File path to the **Path to the build.gradle file** so that it knows where to find the file that contains the versionCode and versionName attributes.
+
+`mergeVersionCode`
+**Optional**, Whether or not to combine existing versionCode with the one specified in the action
 
 `versionCode`
 **Optional**, Version Code to override
@@ -31,6 +34,7 @@ jobs:
         uses: chkfung/android-version-actions@v1.1
         with:
           gradlePath: app/build.gradle # or app/build.gradle.kts 
+          mergeVersioncode: true
           versionCode: ${{github.run_number}}
           versionName: 1.0.0
 ```

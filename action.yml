@@ -1,10 +1,14 @@
 name: "Increment the version code of your project"
-description: "This action will increment the version code directly in build.gradle . "
+description: "This action will increment the version code directly in build.gradle. "
 inputs:
   gradlePath:
     description: "Gradle path to override version"
     required: true
     default: "app/build.gradle"
+  mergeVersionCode:
+    description: "Whether or not to combine existing versionCode with the one specified in the action"
+    required: false
+    default: false
   versionCode:
     description: "The new version code"
     required: false
