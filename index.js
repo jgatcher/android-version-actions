@@ -11,7 +11,7 @@ try {
     const gradlePath = core.getInput('gradlePath');
     const versionCode = core.getInput('versionCode');
     const versionName = core.getInput('versionName');
-    const mergeVersionCode = core.getBooleanInput('mergeVersionCode');
+    const mergeVersionCode = (core.getInput('mergeVersionCode') == true)?true:false;
 
     console.log(`Gradle Path : ${gradlePath}`);
     console.log(`Version Code : ${versionCode}`);
