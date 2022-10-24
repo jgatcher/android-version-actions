@@ -9,7 +9,7 @@ const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 
 try {
     const gradlePath = core.getInput('gradlePath');
-    const versionCode = core.getInput('versionCode');
+    let versionCode = core.getInput('versionCode');
     const versionName = core.getInput('versionName');
     const mergeVersionCode = (core.getInput('mergeVersionCode') == true) ? true : false;
 
