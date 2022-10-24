@@ -47,6 +47,7 @@ function mergeWithPreviousVersionCode(versionCode) {
     let match = newGradle.match(versionCodeRegexPattern);
     let currentValue = Number.parseInt(match[2])
     let proposedValue = Number.parseInt(versionCode);
+    console.log(`${currentValue} ${proposedValue}`)
     if (currentValue >= proposedValue) {
         return currentValue + 1
     }
