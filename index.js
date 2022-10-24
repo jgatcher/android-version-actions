@@ -11,7 +11,7 @@ try {
     const gradlePath = core.getInput('gradlePath');
     const versionCode = core.getInput('versionCode');
     const versionName = core.getInput('versionName');
-    const mergeVersionCode = (core.getInput('mergeVersionCode') == true)?true:false;
+    const mergeVersionCode = (core.getInput('mergeVersionCode') == true) ? true : false;
 
     console.log(`Gradle Path : ${gradlePath}`);
     console.log(`Version Code : ${versionCode}`);
@@ -25,9 +25,9 @@ try {
                 let merged = mergeWithPreviousVersionCode(versionCode);
                 versionCode = merged
             }
-            newGradle = newGradle.replace(versionCodeRegexPattern, `$1${versionCode}`); 
-            
-          
+        newGradle = newGradle.replace(versionCodeRegexPattern, `$1${versionCode}`);
+
+
         if (versionName.length > 0)
             newGradle = newGradle.replace(versionNameRegexPattern, `$1\"${versionName}\"`);
         fs.writeFile(gradlePath, newGradle, function (err) {
@@ -48,7 +48,7 @@ function mergeWithPreviousVersionCode(versionCode) {
     let currentValue = Number.parseInt(match[2])
     let proposedValue = Number.parseInt(versionCode);
     if (currentValue >= proposedValue) {
-        return currentValue+1
+        return currentValue + 1
     }
     return proposedValue;
 }
